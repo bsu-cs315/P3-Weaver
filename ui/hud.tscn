@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnhxwi8af6nvr"]
+
+[ext_resource type="Script" path="res://ui/hud.gd" id="1_uqrm6"]
+
+[sub_resource type="GDScript" id="GDScript_j3h1v"]
+script/source = "extends Label
+
+var score = 0"
+
+[node name="hud" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_uqrm6")
+
+[node name="score_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 749.0
+offset_top = 2.0
+offset_right = 859.0
+offset_bottom = 28.0
+text = "Targets Left: 9"
+script = SubResource("GDScript_j3h1v")
+
+[node name="power_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 276.0
+offset_top = 2.0
+offset_right = 316.0
+offset_bottom = 28.0
+text = "-"
+
+[node name="angle_label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

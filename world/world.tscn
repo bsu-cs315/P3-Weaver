@@ -1,7 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://b3jdc6bya0ehs"]
+[gd_scene load_steps=24 format=3 uid="uid://b3jdc6bya0ehs"]
 
+[ext_resource type="Script" path="res://world/world.gd" id="1_mdrm6"]
 [ext_resource type="PackedScene" uid="uid://d3bbricurnrc4" path="res://player_body/player_body.tscn" id="1_ogxnp"]
 [ext_resource type="PackedScene" uid="uid://drlv3ra11el8y" path="res://target/target.tscn" id="2_0img2"]
+[ext_resource type="PackedScene" uid="uid://bnhxwi8af6nvr" path="res://ui/hud.tscn" id="3_xqg0q"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4ywqm"]
 size = Vector3(100, 2, 100)
@@ -71,6 +73,7 @@ material = SubResource("StandardMaterial3D_bwspm")
 size = Vector3(100, 2, 100)
 
 [node name="world" type="Node"]
+script = ExtResource("1_mdrm6")
 
 [node name="wall_set" type="Node3D" parent="."]
 
@@ -518,3 +521,19 @@ transform = Transform3D(0.0341842, 0, -0.999416, 0, 1, 0, 0.999416, 0, 0.0341842
 
 [node name="target9" parent="target_set" instance=ExtResource("2_0img2")]
 transform = Transform3D(0.0341842, 0, -0.999416, 0, 1, 0, 0.999416, 0, 0.0341842, 27.2022, 48.9102, -40.8139)
+
+[node name="hud" parent="." instance=ExtResource("3_xqg0q")]
+offset_left = 133.0
+offset_top = 55.0
+offset_right = 173.0
+offset_bottom = 95.0
+
+[connection signal="hit" from="target_set/target1" to="hud" method="_on_target_1_hit"]
+[connection signal="hit" from="target_set/target2" to="hud" method="_on_target_2_hit"]
+[connection signal="hit" from="target_set/target3" to="hud" method="_on_target_3_hit"]
+[connection signal="hit" from="target_set/target4" to="hud" method="_on_target_4_hit"]
+[connection signal="hit" from="target_set/target5" to="hud" method="_on_target_5_hit"]
+[connection signal="hit" from="target_set/target6" to="hud" method="_on_target_6_hit"]
+[connection signal="hit" from="target_set/target7" to="hud" method="_on_target_7_hit"]
+[connection signal="hit" from="target_set/target8" to="hud" method="_on_target_8_hit"]
+[connection signal="hit" from="target_set/target9" to="hud" method="_on_target_9_hit"]
