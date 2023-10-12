@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://d3bbricurnrc4"]
+[gd_scene load_steps=9 format=3 uid="uid://d3bbricurnrc4"]
 
 [ext_resource type="Script" path="res://player_body/player_body.gd" id="1_4mmuv"]
+[ext_resource type="PackedScene" uid="uid://dga1ufewfdnqq" path="res://launcher/launcher.tscn" id="2_7wjhc"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cgynr"]
 
@@ -35,9 +36,12 @@ shape = SubResource("CapsuleShape3D_cgynr")
 mesh = SubResource("CapsuleMesh_yd4s6")
 
 [node name="camera_controller" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, -0.5)
 
 [node name="camera" type="Camera3D" parent="camera_controller"]
 
 [node name="reflection_probe" type="ReflectionProbe" parent="camera_controller/camera"]
 update_mode = 1
+
+[node name="launcher" parent="." instance=ExtResource("2_7wjhc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.811062, 0, 0)

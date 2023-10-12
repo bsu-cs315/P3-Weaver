@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://dga1ufewfdnqq"]
+
+[ext_resource type="Script" path="res://launcher/launcher.gd" id="1_fr4qk"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_15sym"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ym34w"]
+noise = SubResource("FastNoiseLite_15sym")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bgfgf"]
+albedo_color = Color(0, 0.537255, 0.435294, 1)
+albedo_texture = SubResource("NoiseTexture2D_ym34w")
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_7cot1"]
+material = SubResource("StandardMaterial3D_bgfgf")
+radius = 0.125
+height = 1.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8e1el"]
+radius = 0.125
+height = 1.0
+
+[node name="launcher" type="StaticBody3D"]
+script = ExtResource("1_fr4qk")
+force = Vector3(0, 0, 200)
+
+[node name="launcher_mesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_7cot1")
+
+[node name="launcher_collision" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_8e1el")

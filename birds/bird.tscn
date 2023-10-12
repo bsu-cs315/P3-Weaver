@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://ddexyktja3gt1"]
+
+[ext_resource type="Script" path="res://birds/bird.gd" id="1_gds3f"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_me16r"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_s84n4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1h12u"]
+albedo_color = Color(0.65098, 0.0901961, 0.431373, 1)
+albedo_texture = SubResource("NoiseTexture2D_s84n4")
+
+[sub_resource type="SphereMesh" id="SphereMesh_uowwx"]
+material = SubResource("StandardMaterial3D_1h12u")
+
+[node name="bird" type="RigidBody3D"]
+script = ExtResource("1_gds3f")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_me16r")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_uowwx")
