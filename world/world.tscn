@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b3jdc6bya0ehs"]
+[gd_scene load_steps=18 format=3 uid="uid://b3jdc6bya0ehs"]
 
 [ext_resource type="PackedScene" uid="uid://d3bbricurnrc4" path="res://player_body/player_body.tscn" id="1_ogxnp"]
 
@@ -35,6 +35,30 @@ metallic_texture_channel = 4
 material = SubResource("StandardMaterial3D_bwspm")
 size = Vector3(100, 2, 100)
 
+[sub_resource type="Gradient" id="Gradient_gwpyk"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_g7npn"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_p7jxx"]
+color_ramp = SubResource("Gradient_gwpyk")
+noise = SubResource("FastNoiseLite_g7npn")
+
+[sub_resource type="Gradient" id="Gradient_jak55"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_mxh8x"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_l1c3c"]
+color_ramp = SubResource("Gradient_jak55")
+noise = SubResource("FastNoiseLite_mxh8x")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5vg30"]
+albedo_color = Color(0.682353, 0.247059, 0.00784314, 1)
+albedo_texture = SubResource("NoiseTexture2D_p7jxx")
+emission_enabled = true
+emission = Color(0.709804, 0, 0.529412, 1)
+emission_energy_multiplier = 0.83
+emission_texture = SubResource("NoiseTexture2D_l1c3c")
+
 [node name="world" type="Node"]
 
 [node name="floor" type="StaticBody3D" parent="."]
@@ -46,12 +70,14 @@ shape = SubResource("BoxShape3D_4ywqm")
 [node name="floor_mesh" type="MeshInstance3D" parent="floor"]
 mesh = SubResource("BoxMesh_rcg4i")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="directional_light" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.415249, 0.909708, 0, -0.909708, -0.415249, 0, 0, 0)
 shadow_enabled = true
 
 [node name="box_prop" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00673103, 0.506671, 5.114)
+use_collision = true
+material = SubResource("StandardMaterial3D_5vg30")
 
 [node name="player_body" parent="." instance=ExtResource("1_ogxnp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

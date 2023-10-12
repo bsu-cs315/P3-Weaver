@@ -1,4 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://d3bbricurnrc4"]
+[gd_scene load_steps=8 format=3 uid="uid://d3bbricurnrc4"]
+
+[ext_resource type="Script" path="res://player_body/player_body.gd" id="1_4mmuv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cgynr"]
 
@@ -20,7 +22,11 @@ roughness = 0.41
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_yd4s6"]
 material = SubResource("StandardMaterial3D_vmyqy")
 
-[node name="player_body" type="CharacterBody3D"]
+[node name="player_body" type="CharacterBody3D" node_paths=PackedStringArray("camera_controller")]
+script = ExtResource("1_4mmuv")
+SPEED = 20.0
+JUMP_VELOCITY = 10.0
+camera_controller = NodePath("camera_controller/camera")
 
 [node name="player_collision" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_cgynr")
@@ -29,6 +35,9 @@ shape = SubResource("CapsuleShape3D_cgynr")
 mesh = SubResource("CapsuleMesh_yd4s6")
 
 [node name="camera_controller" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
 [node name="camera" type="Camera3D" parent="camera_controller"]
+
+[node name="reflection_probe" type="ReflectionProbe" parent="camera_controller/camera"]
+update_mode = 1
