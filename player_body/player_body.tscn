@@ -45,4 +45,4 @@ update_mode = 1
 
 [node name="launcher" parent="." instance=ExtResource("2_7wjhc")]
 transform = Transform3D(1, 0, 0, 0, -0.0150092, 0.999887, 0, -0.999887, -0.0150092, 0.759242, 0, 0)
-force = Vector3(-500, -5, -500)
+force = Vector3(-200, 0, -200)
