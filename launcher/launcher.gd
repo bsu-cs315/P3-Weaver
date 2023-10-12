@@ -1,11 +1,11 @@
 extends Node3D
 
-const _ROTATION_DEGREES_PER_SECOND := 45.0
+const _ROTATION_DEGREES_PER_SECOND := 180
 
 var charge_power = 0 
 var _angle := 0.0
 
-@export var force := Vector3(-200,0,-200)
+@export var force := Vector3(-300,0,-300)
 @onready var bird = preload("res://birds/bird.tscn")
 
 
@@ -16,7 +16,7 @@ var _angle := 0.0
 
 
 func _process(delta:float):
-	var original_angle := _angle
+#	var original_angle := _angle
 	
 	if Input.is_action_just_pressed("increment_angle"):
 		_angle -= _ROTATION_DEGREES_PER_SECOND * delta
@@ -25,13 +25,13 @@ func _process(delta:float):
 	
 	_angle = clampf(_angle, -90, 0)
 	
-	var current_force = Vector3(force.x, (_angle/20), force.z)
-	print (current_force)
+	var current_force = Vector3(force.x, ((_angle/20)+1), force.z)
+	
 	
 	
 	if Input.is_action_pressed("launch"):
 		charge_power += .1
-		print (charge_power)
+		
 	if Input.is_action_just_released("launch"):
 		_make_new_bird(charge_power*current_force)
 		charge_power = 0

@@ -25,8 +25,6 @@ material = SubResource("StandardMaterial3D_vmyqy")
 
 [node name="player_body" type="CharacterBody3D" node_paths=PackedStringArray("camera_controller")]
 script = ExtResource("1_4mmuv")
-SPEED = 20.0
-JUMP_VELOCITY = 10.0
 camera_controller = NodePath("camera_controller/camera")
 
 [node name="player_collision" type="CollisionShape3D" parent="."]
@@ -36,7 +34,7 @@ shape = SubResource("CapsuleShape3D_cgynr")
 mesh = SubResource("CapsuleMesh_yd4s6")
 
 [node name="camera_controller" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.82814, 8.78205)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, -0.3)
 
 [node name="camera" type="Camera3D" parent="camera_controller"]
 
@@ -45,4 +43,3 @@ update_mode = 1
 
 [node name="launcher" parent="." instance=ExtResource("2_7wjhc")]
 transform = Transform3D(1, 0, 0, 0, -0.0150092, 0.999887, 0, -0.999887, -0.0150092, 0.759242, 0, 0)
-force = Vector3(-200, 0, -200)

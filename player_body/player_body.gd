@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
-@export var SPEED : float = 5.0
-@export var JUMP_VELOCITY : float = 4.5
+@export var SPEED : float = 15
+@export var JUMP_VELOCITY : float = 20
 @export var MOUSE_SENSITIVITY : float = 0.5
 @export var TILT_LOWER_LIMIT := deg_to_rad(-90.0)
 @export var TILT_UPPER_LIMIT := deg_to_rad(90.0)
@@ -54,7 +54,7 @@ func _physics_process(delta):
 	
 
 	if not is_on_floor():
-		velocity.y -= gravity * delta
+		velocity.y -= gravity*4 * delta
 
 	
 	if Input.is_action_just_pressed("jump") and is_on_floor():
