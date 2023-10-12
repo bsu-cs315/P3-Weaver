@@ -36,7 +36,7 @@ shape = SubResource("CapsuleShape3D_cgynr")
 mesh = SubResource("CapsuleMesh_yd4s6")
 
 [node name="camera_controller" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, -0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.82814, 8.78205)
 
 [node name="camera" type="Camera3D" parent="camera_controller"]
 
@@ -44,4 +44,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, -0.5)
 update_mode = 1
 
 [node name="launcher" parent="." instance=ExtResource("2_7wjhc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.811062, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -0.0150092, 0.999887, 0, -0.999887, -0.0150092, 0.759242, 0, 0)
+force = Vector3(-1000, -10, -1000)
