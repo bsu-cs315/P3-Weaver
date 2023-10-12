@@ -520,7 +520,7 @@ transform = Transform3D(-0.997442, 0, 0.0714802, 0, 1, 0, -0.0714802, 0, -0.9974
 transform = Transform3D(0.0341842, 0, -0.999416, 0, 1, 0, 0.999416, 0, 0.0341842, 27.2022, 48.9102, -40.8139)
 
 [node name="target9" parent="target_set" instance=ExtResource("2_0img2")]
-transform = Transform3D(0.0341842, 0, -0.999416, 0, 1, 0, 0.999416, 0, 0.0341842, 27.2022, 48.9102, -40.8139)
+transform = Transform3D(-0.993846, 0, 0.110775, 0, 1, 0, -0.110775, 0, -0.993846, 0.108816, 14.0772, -34.4465)
 
 [node name="hud" parent="." instance=ExtResource("3_xqg0q")]
 offset_left = 133.0

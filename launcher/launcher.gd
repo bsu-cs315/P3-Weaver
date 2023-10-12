@@ -1,5 +1,6 @@
 extends Node3D
 
+
 const _ROTATION_DEGREES_PER_SECOND := 180
 
 signal angle_changed(new_angle: float)
@@ -13,12 +14,6 @@ var _angle := 0.0
 @onready var bird = preload("res://birds/bird.tscn")
 
 
-# Called when the node enters the scene tree for the first time.
-#func _ready():
-#	_make_new_bird()
-
-
-
 func _process(delta:float):
 	var original_angle := _angle
 	var original_power := _charge_power_number
@@ -27,25 +22,19 @@ func _process(delta:float):
 		_angle -= _ROTATION_DEGREES_PER_SECOND * delta
 	elif Input.is_action_just_pressed("decrement_angle"):
 		_angle += _ROTATION_DEGREES_PER_SECOND * delta
-	
 	_angle = clampf(_angle, -90, 0)
 	
-
 	if _angle != original_angle:
 		angle_changed.emit(_angle)
 		
-
-	
 	var current_force = Vector3(force.x, ((_angle/20)-1), force.z)
-	
-	
 	
 	if Input.is_action_pressed("launch"):
 		charge_power += .1
 		_charge_power_number -= 1
-		
 		if _charge_power_number != original_power:
 			charge_power_changed.emit(_charge_power_number)
+			
 	if Input.is_action_just_released("launch"):
 		_make_new_bird(charge_power*current_force)
 		charge_power = 1
@@ -59,8 +48,10 @@ func _process(delta:float):
 func get_angle():
 	return _angle
 	
+	
 func get_charge_power():
 	return _charge_power_number
+	
 	
 func _make_new_bird(launch_power):
 	var bird_inst = bird.instantiate()
