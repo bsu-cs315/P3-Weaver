@@ -54,6 +54,7 @@ func get_charge_power():
 	
 	
 func _make_new_bird(launch_power):
+	$fire_sound.play()
 	var bird_inst = bird.instantiate()
 	get_tree().get_root().get_child(0).add_child(bird_inst)
 	bird_inst.global_transform = $launch_point_3d.global_transform

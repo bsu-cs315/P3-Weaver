@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://d3bbricurnrc4"]
+[gd_scene load_steps=10 format=3 uid="uid://d3bbricurnrc4"]
 
 [ext_resource type="Script" path="res://player_body/player_body.gd" id="1_4mmuv"]
 [ext_resource type="PackedScene" uid="uid://dga1ufewfdnqq" path="res://launcher/launcher.tscn" id="2_7wjhc"]
+[ext_resource type="AudioStream" uid="uid://civt1o6sj714s" path="res://common/jump_sound.wav" id="3_xp52r"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cgynr"]
 
@@ -43,3 +44,6 @@ update_mode = 1
 
 [node name="launcher" parent="." instance=ExtResource("2_7wjhc")]
 transform = Transform3D(1, 0, 0, 0, -0.0150092, 0.999887, 0, -0.999887, -0.0150092, 0.759242, 0, 0)
+
+[node name="jump_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_xp52r")

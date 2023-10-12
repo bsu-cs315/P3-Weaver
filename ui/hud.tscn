@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bnhxwi8af6nvr"]
+[gd_scene load_steps=4 format=3 uid="uid://bnhxwi8af6nvr"]
 
 [ext_resource type="Script" path="res://ui/hud.gd" id="1_uqrm6"]
+[ext_resource type="PackedScene" uid="uid://d1x56nlu737y1" path="res://common/jukebox.tscn" id="2_tjp2x"]
 
 [sub_resource type="GDScript" id="GDScript_j3h1v"]
 script/source = "extends Label
@@ -35,3 +36,10 @@ text = "-"
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="jukebox" parent="." instance=ExtResource("2_tjp2x")]
+
+[node name="victory_timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="victory_timer" to="." method="_on_victory_timer_timeout"]

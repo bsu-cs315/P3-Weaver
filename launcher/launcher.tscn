@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dga1ufewfdnqq"]
+[gd_scene load_steps=8 format=3 uid="uid://dga1ufewfdnqq"]
 
 [ext_resource type="Script" path="res://launcher/launcher.gd" id="1_fr4qk"]
+[ext_resource type="AudioStream" uid="uid://bixunia0sc0nc" path="res://common/player_fire.wav" id="2_axlia"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_vl525"]
 top_radius = 0.125
@@ -39,3 +40,6 @@ disabled = true
 
 [node name="launch_point_3d" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="fire_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_axlia")

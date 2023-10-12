@@ -29,45 +29,65 @@ func _update_charge_power_label(new_charge_power:float)->void:
 	
 
 func _on_target_1_hit():
+	$jukebox.play_hit_sound()
 	score -= 1
 	$score_label.text = "Targets Left: %d" % (score)
 	
 	
 func _on_target_2_hit():
+	$jukebox.play_hit_sound()
 	score -= 1
 	$score_label.text = "Targets Left: %d" % (score)
 	
 	
 func _on_target_3_hit():
+	$jukebox.play_hit_sound()
 	score -= 1
 	$score_label.text = "Targets Left: %d" % (score)
 	
 	
 func _on_target_4_hit():
+	$jukebox.play_hit_sound()
 	score -= 1
 	$score_label.text = "Targets Left: %d" % (score)
 	
 	
 func _on_target_5_hit():
+	$jukebox.play_hit_sound()
 	score -= 1
 	$score_label.text = "Targets Left: %d" % (score)
 	
 	
 func _on_target_6_hit():
+	$jukebox.play_hit_sound()
 	score -= 1
 	$score_label.text = "Targets Left: %d" % (score)
 	
 	
 func _on_target_7_hit():
+	$jukebox.play_hit_sound()
 	score -= 1
 	$score_label.text = "Targets Left: %d" % (score)
 	
 	
 func _on_target_8_hit():
+	$jukebox.play_hit_sound()
 	score -= 1
 	$score_label.text = "Targets Left: %d" % (score)
 	
 	
 func _on_target_9_hit():
+	$jukebox.play_hit_sound()
 	score -= 1
 	$score_label.text = "Targets Left: %d" % (score)
+	
+	
+func _process(_delta):
+	if score == 0:
+		$jukebox.play_win_sound()
+		$victory_timer.start()
+		score = 1000000000000
+
+
+func _on_victory_timer_timeout():
+	get_tree().change_scene_to_file("res://ui/main_menu.tscn")
